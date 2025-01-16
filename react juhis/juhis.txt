@@ -1,0 +1,7 @@
+reacti projekti alustamine:
+    npm create vite@latest {project_name}
+
+    cd {project_name}
+    npm install
+
+react serveri alustamine: npm run dev
