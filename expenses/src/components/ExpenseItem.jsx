@@ -1,16 +1,19 @@
 import './ExpenseItem.css'
 
-const ExpenseItem = () => {
-    // return (<h2>ExpenseItem</h2>)
+const ExpenseItem = (props) => {
+    
+    console.log(props);
+    console.log(props.data);
+
     return (
         <div className='expense-item'>
-            <div>Date</div>
+            <div>{props.data.date.toString()}</div>
             <div className='expense-item__description'>
-                <h2>Title</h2>
-                <div className='expense-item__price'>Prices</div>
+                <h2>{props.data.title}</h2>
+                <div className='expense-item__price'>{props.data.price}</div>
             </div>
         </div>
     )
 }
 
-export default ExpenseItem
+export default ExpenseItem;
