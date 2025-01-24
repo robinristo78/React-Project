@@ -6,11 +6,11 @@ import { useState } from 'react';
 const ExpenseItem = (props) => {
     const [title, setTitle] = useState(props.data.title);
 
-    const clickHandler = () => {
-        console.log('Clicked!');
-        setTitle(`Updated by click ${title}`)
-        console.log(title);
-    }
+    // const clickHandler = () => {
+    //     console.log('Clicked!');
+    //     setTitle(`Updated by click ${title}`)
+    //     console.log(title);
+    // }
 
     return (
         <Card className='expense-item'>
