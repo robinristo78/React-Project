@@ -3,6 +3,7 @@ import './Expenses.css'
 import ExpenseItem from './ExpenseItem.jsx';
 import Card from '../UI/Card.jsx';
 import ExpensesFilter from './ExpensesFilter.jsx';
+import ExpensesList from './ExpensesList.jsx';
 
 const Expenses = (props) => {
 
@@ -22,14 +23,7 @@ const Expenses = (props) => {
     return (
         <Card className='expenses'>
             <ExpensesFilter selectedYear={filteredYear} onChangeFilter={filterChangeHandler} /> 
-            {
-                filteredExpenses.length === 0 && <p style={{ color: 'white' }}>No expenses found.</p>
-            }
-            {
-                filteredExpenses.length > 0 && filteredExpenses.map((expense) => {
-                    return <ExpenseItem expenseData={expense} key={expense.id}/>
-                })
-            }
+            <ExpensesList expenses={filteredExpenses}/>
             
             {/* {filteredExpenses.length > 0 ? (
                 filteredExpenses.map((expense) => (
@@ -37,7 +31,9 @@ const Expenses = (props) => {
                 ))
             ) : (
                 <p style={{ color: 'white' }}>No items found for {filteredYear}.</p>
-            )}
+            )} */}
+
+            
             {/* <ExpenseItem data={props.expenses[0]}/>
             <ExpenseItem data={props.expenses[1]}/> */}
         </Card>
