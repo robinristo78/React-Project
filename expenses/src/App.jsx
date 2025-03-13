@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Expenses from './components/Expenses/Expenses.jsx';
 import NewExpense from './components/NewExpense/NewExpense.jsx';
 
@@ -26,7 +26,11 @@ const DYMMY_EXPENSES = [
 
 const App = () => {
   
-  const [expenses, setExpenses] = useState(DYMMY_EXPENSES);
+  const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }, [expenses]);
 
   const addExpenseHandler = (expense) => {
     // console.log('In App.js');
