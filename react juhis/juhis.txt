@@ -4,4 +4,8 @@ reacti projekti alustamine:
     cd {project_name}
     npm install
 
+package.json sisse kirjuta scripts: {
+    "dev": "vite"
+}
+
 react serveri alustamine: npm run dev
