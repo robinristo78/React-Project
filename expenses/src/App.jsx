@@ -2,6 +2,7 @@ import './App.css'
 import React, { useEffect, useState } from 'react';
 import Expenses from './components/Expenses/Expenses.jsx';
 import NewExpense from './components/NewExpense/NewExpense.jsx';
+import { get } from 'node:http';
 
 const DYMMY_EXPENSES = [
   {
@@ -26,10 +27,17 @@ const DYMMY_EXPENSES = [
 
 const App = () => {
   
-  const [expenses, setExpenses] = useState(() => {
-    const expensesFromLS = JSON.parse(localStorage.getItem('expenses'));
-    return expensesFromLS || [];
-  });
+  const [expenses, setExpenses] = useState([]);
+ 
+  useEffect(() => {
+    const getExpenses = async () => {
+      const response = await fetch('http://localhost:3005/expenses');
+      const responseData = await response.json();
+      setExpenses(responseData.expenses);
+    }
+    getExpenses();
+    console.log(expenses);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('expenses', JSON.stringify(expenses));
